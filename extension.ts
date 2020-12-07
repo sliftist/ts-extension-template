@@ -240,9 +240,7 @@ export type UpdatedAST = {
             ast: Program,
             doc: vscode.TextDocument,
             setDecoration: (
-                decoration:
-                    Omit<vscode.DecorationRenderOptions & vscode.DecorationInstanceRenderOptions, "range">
-                    & ({ range: vscode.Range } | { node: Node })
+                decoration: DecorationIntersection
             ) => void,
             traverse: (
                 config: {
