@@ -252,4 +252,4 @@ export type UpdatedAST = {
 };
 
 
-import "./decorationExample1";
+import "./decorationSetup";
