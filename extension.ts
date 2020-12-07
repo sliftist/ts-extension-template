@@ -8,10 +8,10 @@ export function activate(context: vscode.ExtensionContext) {
 
     let recentRunLength = 10 * 1000;
     let recentRuns: { start: number; end: number }[] = [];
-    function timeCode(code: () => void) {
+    async function timeCode(code: () => Promise<void>) {
         let runStart = Date.now();
         try {
-            code();
+            await code();
         } catch (e) {
             (vscode.window.showInformationMessage(`Parse error ${e.stack}!`));
         } finally {
