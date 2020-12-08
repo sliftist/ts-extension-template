@@ -50,20 +50,23 @@ export function activate(context: vscode.ExtensionContext) {
     triggerUpdateDecorations();
 
     function triggerUpdateDecorations() {
-        if (updateStatus === "pending") {
-            updateStatus = "pendingStale";
-            return;
-        }
-        if (updateStatus === "pendingStale") {
-            return;
-        }
-        updateStatus = "pending";
-
+        // Restart while the user is typing
         if (timeout) {
             clearTimeout(timeout);
             timeout = undefined;
+        } else {
+            if (updateStatus === "pending") {
+                updateStatus = "pendingStale";
+                return;
+            }
+            if (updateStatus === "pendingStale") {
+                return;
+            }
+            updateStatus = "pending";
         }
+
         timeout = setTimeout(async () => {
+            timeout = undefined;
             try {
                 const activeEditor = vscode.window.activeTextEditor;
                 if (!activeEditor) return;
