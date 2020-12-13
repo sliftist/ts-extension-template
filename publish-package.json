@@ -1,0 +1,31 @@
+{
+    "name": "ts-extension-template",
+    "displayName": "",
+    "description": "",
+    "repository": "git@github.com:sliftist/close-parser.git",
+    "main": "./dist/extension.js",
+    "files": [
+        "*"
+    ],
+    "icon": "icon.png",
+    "version": "0.0.10",
+    "engines": {
+        "vscode": "^1.43.0"
+    },
+    "publisher": "sliftist",
+    "categories": [],
+    "activationEvents": [
+        "*"
+    ],
+    "contributes": {
+        "commands": []
+    },
+    "scripts": {},
+    "devDependencies": {},
+    "dependencies": {
+        "@typescript-eslint/typescript-estree": "^2.27.0",
+        "@typescript-eslint/eslint-plugin": "^2.28.0",
+        "@typescript-eslint/parser": "^2.28.0",
+        "typescript": "^3.8.3"
+    }
+}
